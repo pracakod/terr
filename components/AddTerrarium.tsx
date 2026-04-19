@@ -56,8 +56,8 @@ export default function AddTerrarium({ onAdd, draft, setDraft, isEditing, onCanc
     if (!imgRef.current || !adjustingImage) return;
 
     const canvas = document.createElement('canvas');
-    const frameW = 800;
-    const frameH = 600; // 4:3 ratio
+    const frameW = 400; // Zmniejszono rozdzielczość aby pomieścić więcej zdjęć
+    const frameH = 300; // 4:3 ratio
     canvas.width = frameW;
     canvas.height = frameH;
     const ctx = canvas.getContext('2d');
@@ -96,7 +96,7 @@ export default function AddTerrarium({ onAdd, draft, setDraft, isEditing, onCanc
     ctx.drawImage(img, -drawW / 2, -drawH / 2, drawW, drawH);
     ctx.restore();
 
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.7); // Wyższa kompresja dla mniejszego pliku
     handleChange('imageUrl', dataUrl);
     setIsAdjusting(false);
     setAdjustingImage(null);

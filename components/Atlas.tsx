@@ -77,9 +77,9 @@ export default function Atlas({ entries, addEntry, deleteEntry, updateEntry }: A
     if (!imgRef.current || !adjustingImage) return;
 
     const canvas = document.createElement('canvas');
-    // We want a high quality output, let's say 800x600 for Atlas
-    const frameW = 800;
-    const frameH = 600;
+    // Mniejsza rozdzielczość, aby pomieścić więcej wpisów
+    const frameW = 400;
+    const frameH = 300;
     canvas.width = frameW;
     canvas.height = frameH;
     const ctx = canvas.getContext('2d');
@@ -136,7 +136,7 @@ export default function Atlas({ entries, addEntry, deleteEntry, updateEntry }: A
     ctx.drawImage(img, -drawW / 2, -drawH / 2, drawW, drawH);
     ctx.restore();
 
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
     setDraft(prev => ({ ...prev, imageUrl: dataUrl }));
     setIsAdjusting(false);
     setAdjustingImage(null);
