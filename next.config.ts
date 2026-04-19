@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   // Change this if your repo name is different
   basePath: '/terr',
+  trailingSlash: true,
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [
