@@ -212,11 +212,15 @@ export default function Atlas({ entries, addEntry, deleteEntry, updateEntry }: A
                 </div>
               )}
               <button 
-                onClick={() => { if(confirm('Usunąć wpis z atlasu?')) deleteEntry(entry.id); }}
-                className="absolute top-2 right-2 p-1.5 bg-[var(--bg-glass)] rounded-full text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={(e) => { 
+                  e.stopPropagation();
+                  if(confirm('Usunąć wpis z atlasu?')) deleteEntry(entry.id); 
+                }}
+                className="absolute top-2 right-2 p-2 bg-[var(--bg-glass)] rounded-full text-[var(--accent)] shadow-sm border border-white/10 z-20 active:scale-90 transition-transform"
               >
-                <Trash2 size={12} />
+                <Trash2 size={14} />
               </button>
+
             </div>
             <div className="p-3">
               <div className="flex flex-col gap-1 mb-2">
@@ -330,12 +334,29 @@ export default function Atlas({ entries, addEntry, deleteEntry, updateEntry }: A
                   />
                 </div>
 
-                <button 
-                  type="submit" 
-                  className="w-full py-4 bg-[var(--primary)] text-white rounded-xl font-bold text-[15px] shadow-lg shadow-[var(--primary)]/20 active:scale-[0.98] transition-all"
-                >
-                  {editingId ? 'Zapisz zmiany' : 'Zapisz w Atlasie'}
-                </button>
+                <div className="flex gap-3 mt-6">
+                  {editingId && (
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        if(confirm('Na pewno usunąć ten wpis?')) {
+                          deleteEntry(editingId);
+                          setShowForm(false);
+                        }
+                      }}
+                      className="flex-1 py-4 bg-[var(--bg-page)] text-[var(--accent)] border border-[var(--border)] rounded-xl font-bold text-[15px] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                    >
+                      <Trash2 size={18} /> Usuń
+                    </button>
+                  )}
+                  <button 
+                    type="submit" 
+                    className={`${editingId ? 'flex-[2]' : 'w-full'} py-4 bg-[var(--primary)] text-white rounded-xl font-bold text-[15px] shadow-lg shadow-[var(--primary)]/20 active:scale-[0.98] transition-all`}
+                  >
+                    {editingId ? 'Zapisz zmiany' : 'Zapisz w Atlasie'}
+                  </button>
+                </div>
+
               </form>
             </motion.div>
           </motion.div>
