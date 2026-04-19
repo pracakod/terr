@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #556B2F;
+  --primary-rgb: 85, 107, 47;
+  --bg-page: #FAF9F7;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F2F2F0;
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --text-main: #2C2C2E;
+  --text-muted: #8E8E93;
+  --border: #F0F0EE;
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --accent: #E67E22;
+  --shelf-top: #E5E5E1;
+  --shelf-side: #D6D6D2;
+  --warning-bg: #FDF2E9;
+  --warning-text: #A04000;
+  --warning-border: #FAE5D3;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --primary: #6B8E23;
+  --primary-rgb: 107, 142, 35;
+  --bg-page: #0A0A0B;
+  --bg-card: #151517;
+  --bg-muted: #1C1C1E;
+  --bg-overlay: rgba(0, 0, 0, 0.85);
+  --bg-glass: rgba(20, 20, 22, 0.8);
+  --text-main: #F2F2F7;
+  --text-muted: #8E8E93;
+  --border: #2C2C2E;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent: #FF9F0A;
+  --shelf-top: #1C1C1E;
+  --shelf-side: #0A0A0B;
+  --warning-bg: #2C1A0A;
+  --warning-text: #FF9F0A;
+  --warning-border: #4A3015;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='clay'] {
+  --primary: #A0522D;
+  --primary-rgb: 160, 82, 45;
+  --bg-page: #FAF3E0;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F5EAE0;
+  --bg-overlay: rgba(93, 64, 55, 0.4);
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --text-main: #5D4037;
+  --text-muted: #8D6E63;
+  --border: #EFEBE9;
+  --border-subtle: rgba(93, 64, 55, 0.05);
+  --accent: #D84315;
+  --shelf-top: #D7CCC8;
+  --shelf-side: #A1887F;
+  --warning-bg: #FFF3E0;
+  --warning-text: #E65100;
+  --warning-border: #FFE0B2;
+  --shadow: 0 4px 12px rgba(93, 64, 55, 0.1);
+}
+
+[data-theme='monochrome'] {
+  --primary: #1C1C1E;
+  --primary-rgb: 28, 28, 30;
+  --bg-page: #F2F2F7;
+  --bg-card: #FFFFFF;
+  --bg-muted: #E5E5EA;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --text-main: #000000;
+  --text-muted: #636366;
+  --border: #D1D1D6;
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --accent: #3A3A3C;
+  --shelf-top: #E5E5EA;
+  --shelf-side: #C7C7CC;
+  --warning-bg: #EFEFEF;
+  --warning-text: #333333;
+  --warning-border: #CCCCCC;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+html {
+  background-color: var(--bg-page);
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar for better theme support */
+* {
+  scrollbar-color: var(--border) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

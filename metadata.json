@@ -1,0 +1,6 @@
+{
+  "name": "Terrarium",
+  "description": "Minimalistyczna aplikacja do zarządzania terrariami dla straszyków i owadów, z kalendarzem opieki i inteligentnymi sugestiami.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
