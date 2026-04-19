@@ -211,18 +211,9 @@ export default function Atlas({ entries, addEntry, deleteEntry, updateEntry }: A
                   <Camera size={24} className="text-[var(--text-muted)] opacity-30" />
                 </div>
               )}
-              <button 
-                onClick={(e) => { 
-                  e.stopPropagation();
-                  if(confirm('Usunąć wpis z atlasu?')) deleteEntry(entry.id); 
-                }}
-                className="absolute top-2 right-2 p-2 bg-[var(--bg-glass)] rounded-full text-[var(--accent)] shadow-sm border border-white/10 z-20 active:scale-90 transition-transform"
-              >
-                <Trash2 size={14} />
-              </button>
-
             </div>
             <div className="p-3">
+
               <div className="flex flex-col gap-1 mb-2">
                 <h3 className="text-[14px] font-bold text-[var(--text-main)] line-clamp-1">{entry.name}</h3>
                 <div className="flex items-center gap-1.5 text-[9px] text-[var(--text-muted)]">
